@@ -1,0 +1,48 @@
+/* full black background */
+body {
+    margin: 0;
+    padding: 0;
+    background: #0c082b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* container for cards */
+.list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;          /* consistent space between cards */
+}
+
+/* each card */
+.item {
+    width: 150px;       /* same width for all */
+    height: 200px;      /* same height for all */
+    background: #000;
+    flex: none;         /* prevent stretching */
+}
+
+/* image inside card */
+.item img {
+    width: 150px;       /* same as card */
+    height: 200px;      /* same as card */
+    object-fit: cover;  /* fill card without distortion */
+    display: block;
+}
+
+.list{
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+.list .item{
+    transition: .5s;
+    filter: brightness(0);
+}
+
+.list .item:hover{
+    filter: brightness(1);
+transform: translateZ(200px);
+}
