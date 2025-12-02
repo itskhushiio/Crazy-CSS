@@ -1,42 +1,41 @@
-/* full black background */
+
 body {
     margin: 0;
     padding: 0;
-    background: #0c082b;
+    background: #0c082b; 
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
 
-/* container for cards */
+
 .list {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;          /* consistent space between cards */
-}
-
-/* each card */
-.item {
-    width: 150px;       /* same width for all */
-    height: 200px;      /* same height for all */
-    background: #000;
-    flex: none;         /* prevent stretching */
-}
-
-/* image inside card */
-.item img {
-    width: 150px;       /* same as card */
-    height: 200px;      /* same as card */
-    object-fit: cover;  /* fill card without distortion */
-    display: block;
-}
-
-.list{
+    gap: 10px;         
     transform-style: preserve-3d;
     transform: perspective(1000px);
 }
+
+
+.item {
+    width: 130px;       
+    height: 220px;     
+    background: #000;
+    flex: none;    
+}
+
+
+.item img {
+    width: 130px;     
+    height: 220px;      
+    object-fit: cover; 
+    display: block;
+}
+
+
 .list .item{
     transition: .5s;
     filter: brightness(0);
@@ -44,5 +43,25 @@ body {
 
 .list .item:hover{
     filter: brightness(1);
-transform: translateZ(200px);
+    transform: translateZ(200px);
+}
+
+.list .item:hover + *{
+    filter: brightness(0.6);
+    transform: translateZ(150px) rotateY(40deg);
+}
+
+.list .item:hover + * + *{
+    filter: brightness(0.4);
+    transform: translateZ(70px) rotateY(20deg);
+}
+
+.list .item:hover + * + * + *{
+    filter: brightness(0.2);
+    transform: translateZ(30px) rotateY(10deg);
+}
+
+.list .item:has(+ *:hover){
+    filter: brightness(0.6);
+    transform: translateZ(150px) rotateY(-40deg);
 }
